@@ -1,9 +1,10 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
+
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={theme => css`
         *,
         *:before,
         *:after {
@@ -12,8 +13,7 @@ function GlobalStyles() {
         body {
           font-size: 16px;
           margin: 0;
-          background: black;
-          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          background: ${theme.colors.background};
         }
       `}
     />
