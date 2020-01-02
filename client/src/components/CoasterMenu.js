@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const MenuWrap = styled.div`
+const MenuWrapper = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
 `;
 
@@ -32,9 +32,9 @@ const Text = styled.text`
   text-align: center;
 `;
 
-export default function MenuNav() {
+export default function CoasterMenu() {
   return (
-    <MenuWrap>
+    <MenuWrapper>
       <Menu>
         <Text>Sort by:</Text>
         <Button>Ranking </Button>
@@ -43,6 +43,6 @@ export default function MenuNav() {
         <Button>Duration </Button>
         <Button>Hight</Button>
       </Menu>
-    </MenuWrap>
+    </MenuWrapper>
   );
 }
