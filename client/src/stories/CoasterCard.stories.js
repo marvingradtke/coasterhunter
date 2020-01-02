@@ -9,7 +9,7 @@ export default {
 export function Examples() {
   return (
     <>
-      <CoasterCard name="Collosos" ranking={6.2} image={coaster} />
+      <CoasterCard name="Collosos" ranking={4.2} image={coaster} />
       <CoasterCard name="Taron" ranking={7} image={coaster} />
     </>
   );

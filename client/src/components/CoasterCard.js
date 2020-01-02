@@ -27,6 +27,7 @@ const Image = styled.img`
 const WagonImage = styled.img`
   width: 24px;
   margin: 1px;
+  opacity: ${props => (props.highlight ? 1 : 0.4)};
 `;
 
 const CardFooter = styled.div`
@@ -65,8 +66,8 @@ export default function CoasterCard({ image, name, ranking }) {
           <RankingFix>/8</RankingFix>
         </CardContent>
         <CardFooter>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map(ranking => (
-            <WagonImage key={ranking} src={wagon} />
+          {[1, 2, 3, 4, 5, 6, 7, 8].map(score => (
+            <WagonImage key={score} src={wagon} highlight={score < ranking} />
           ))}
         </CardFooter>
       </Card>
