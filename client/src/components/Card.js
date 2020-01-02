@@ -62,7 +62,7 @@ export default function Card() {
   return (
     <CardWrap>
       <CardWrapper>
-        <Image src={Coaster}></Image>
+        <Image src={Coaster} />
         <Container>
           <Name>Taron</Name>
           <RankingContainer>
@@ -71,14 +71,14 @@ export default function Card() {
           </RankingContainer>
         </Container>
         <Wrapper>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
-          <WagonPicto src={Wagon}></WagonPicto>
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
+          <WagonPicto src={Wagon} />
         </Wrapper>
       </CardWrapper>
     </CardWrap>
