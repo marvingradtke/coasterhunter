@@ -5,6 +5,6 @@ export default {
   title: 'Header'
 };
 
-export function Head() {
+export function HeadComponent() {
   return <Header></Header>;
 }

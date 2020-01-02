@@ -6,13 +6,12 @@ import MenuIcon from '../assets/icon-feather.svg';
 
 const Header = styled.header`
   display: flex;
-  background-color: ${props => props.theme.colors.highlight};
+  background: ${props => props.theme.colors.background};
   justify-content: space-between;
   height: 100px;
   width: 100%;
   position: fixed;
-  z-index: 999;
-  overflow: hidden;
+  z-index: 1;
   top: 0;
 `;
 

@@ -12,6 +12,7 @@ function GlobalStyles() {
         }
         body {
           font-size: 16px;
+          font-family: 'Roboto', sans-serif;
           margin: 0;
           background: ${theme.colors.background};
         }
