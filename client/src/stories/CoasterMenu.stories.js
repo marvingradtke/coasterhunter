@@ -1,10 +1,10 @@
 import React from 'react';
-import Menu from '../components/Menu';
+import Menu from '../components/CoasterMenu';
 
 export default {
   title: 'Menu'
 };
 
-export function MenuComponent() {
+export function CoasterMenu() {
   return <Menu></Menu>;
 }

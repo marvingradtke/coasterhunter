@@ -4,7 +4,7 @@ import Logo from '../assets/coasterhunter-logo.svg';
 import SearchIcon from '../assets/icon-search.svg';
 import MenuIcon from '../assets/icon-feather.svg';
 
-const Header = styled.header`
+const Head = styled.header`
   display: flex;
   background: ${props => props.theme.colors.background};
   justify-content: space-between;
@@ -33,9 +33,9 @@ const HeadButton = styled.button`
   border: none;
 `;
 
-export default function HeaderNav() {
+export default function Header() {
   return (
-    <Header>
+    <Head>
       <HeadButton>
         <Icon src={SearchIcon}></Icon>
       </HeadButton>
@@ -43,6 +43,6 @@ export default function HeaderNav() {
       <HeadButton>
         <Icon src={MenuIcon}></Icon>
       </HeadButton>
-    </Header>
+    </Head>
   );
 }
