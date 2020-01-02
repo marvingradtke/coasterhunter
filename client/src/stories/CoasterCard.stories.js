@@ -1,10 +1,16 @@
 import React from 'react';
 import CoasterCard from '../components/CoasterCard';
+import coaster from '../assets/coaster-taron.jpg';
 
 export default {
   title: 'Card'
 };
 
-export function Example() {
-  return <CoasterCard />;
+export function Examples() {
+  return (
+    <>
+      <CoasterCard name="Collosos" ranking={6.2} image={coaster} />
+      <CoasterCard name="Taron" ranking={7} image={coaster} />
+    </>
+  );
 }

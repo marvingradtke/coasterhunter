@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import coaster from '../assets/coaster-taron.jpg';
 import wagon from '../assets/coaster-wagon.svg';
 
 const Shadow = styled.div`
@@ -55,14 +54,14 @@ const CardContent = styled.div`
   width: 100%;
 `;
 
-export default function CoasterCard() {
+export default function CoasterCard({ image, name, ranking }) {
   return (
     <Shadow>
       <Card>
-        <Image src={coaster} />
+        <Image src={image} />
         <CardContent>
-          <Name>Taron</Name>
-          <Ranking>6.3</Ranking>
+          <Name>{name}</Name>
+          <Ranking>{ranking}</Ranking>
           <RankingFix>/8</RankingFix>
         </CardContent>
         <CardFooter>
