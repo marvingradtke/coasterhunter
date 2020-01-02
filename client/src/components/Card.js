@@ -7,7 +7,7 @@ const CardWrap = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
 `;
 
-const Card = styled.div`
+const CardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   color: ${props => props.theme.colors.primary};
@@ -41,10 +41,12 @@ const Name = styled.h2`
 
 const Ranking = styled.h2`
   color: ${props => props.theme.colors.highlight};
-  margin-left: 180px;
+  margin-left: 170px;
 `;
 
-const RankingFix = styled.h2``;
+const RankingFix = styled.h2`
+  font-weight: 100;
+`;
 
 const RankingContainer = styled.div`
   display: flex;
@@ -56,10 +58,10 @@ const Container = styled.div`
   margin-top: -20px;
 `;
 
-export default function CardComponent() {
+export default function Card() {
   return (
     <CardWrap>
-      <Card>
+      <CardWrapper>
         <Image src={Coaster}></Image>
         <Container>
           <Name>Taron</Name>
@@ -78,7 +80,7 @@ export default function CardComponent() {
           <WagonPicto src={Wagon}></WagonPicto>
           <WagonPicto src={Wagon}></WagonPicto>
         </Wrapper>
-      </Card>
+      </CardWrapper>
     </CardWrap>
   );
 }
