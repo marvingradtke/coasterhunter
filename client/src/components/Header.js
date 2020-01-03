@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Logo from '../assets/coasterhunter-logo.svg';
 import SearchIcon from '../assets/icon-search.svg';
-import MenuIcon from '../assets/icon-feather.svg';
+import CoasterMenu from '../components/CoasterMenu';
 
 const Head = styled.header`
   display: flex;
@@ -40,9 +40,7 @@ export default function Header() {
         <Icon src={SearchIcon}></Icon>
       </HeadButton>
       <HeadLogo src={Logo}></HeadLogo>
-      <HeadButton>
-        <Icon src={MenuIcon}></Icon>
-      </HeadButton>
+      <CoasterMenu />
     </Head>
   );
 }
