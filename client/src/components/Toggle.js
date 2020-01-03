@@ -7,8 +7,17 @@ const Icon = styled.img`
 `;
 
 const Button = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 10px;
   background: none;
   border: none;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default class Toggle extends Component {
@@ -24,12 +33,12 @@ export default class Toggle extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.on && this.props.children}
+      <Wrapper>
         <Button onClick={this.toggle}>
           <Icon src={MenuIcon}></Icon>
         </Button>
-      </div>
+        {this.state.on && this.props.children}
+      </Wrapper>
     );
   }
 }
