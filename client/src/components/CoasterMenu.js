@@ -7,6 +7,9 @@ const Shadow = styled.div`
 `;
 
 const Menu = styled.div`
+  position: absolute;
+  top: 55px;
+  right: 16px;
   display: flex;
   flex-direction: column;
   color: ${props => props.theme.colors.primary};
@@ -19,6 +22,7 @@ const Menu = styled.div`
 const Button = styled.button`
   border: none;
   color: ${props => props.theme.colors.highlight};
+  background: white;
   font-weight: 100;
   font-size: 30px;
   margin: 3px;
