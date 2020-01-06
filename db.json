@@ -1,5 +1,46 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "coasters": [
+    {
+      "id": 1,
+      "name": "Taron",
+      "ranking": "7",
+      "speed": "117 km/h",
+      "length": "1320 m",
+      "duration": "100 sec.",
+      "hight": "30 m",
+      "pic": "https://i.pinimg.com/originals/6b/fb/27/6bfb27f7974394e504d2197824109a85.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Colossos",
+      "ranking": "5.1",
+      "speed": "110 km/h",
+      "length": "1344 m",
+      "duration": "145 sec.",
+      "hight": "50 m",
+      "pic": "https://upload.wikimedia.org/wikipedia/commons/3/38/Heide_Park_Colossos_Start.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Colorado",
+      "ranking": "6.6",
+      "speed": "50,1 km/h",
+      "length": "1280 m",
+      "duration": "175 sec.",
+      "hight": "26 m",
+      "pic": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Phantasialand_col.jpg/1280px-Phantasialand_col.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Black Mamba",
+      "ranking": "4.6",
+      "speed": "80 km/h",
+      "length": "768 m",
+      "duration": "105 sec.",
+      "hight": "26 m",
+      "pic": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Black_mamba_looping.jpg/1280px-Black_mamba_looping.jpg"
+    }
+  ],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }

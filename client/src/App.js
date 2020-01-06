@@ -5,24 +5,36 @@ import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from './GlobalStyles.js';
 import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
-import coaster from './assets/coaster-taron.jpg';
+import { useState } from 'react';
 
-const CardWrapper = styled.div`
-  margin-top: 110px;
+const CardWrapper = styled.div``;
+
+const Margin = styled.div`
+  margin-top: 100px;
 `;
 
 export default function App() {
+  const [coasterInfos, setCoasterInfos] = useState([]);
+  async function getCoasterInfos() {
+    const response = await fetch('http://localhost:8080/coasters');
+    const newCoasters = await response.json();
+    setCoasterInfos(newCoasters);
+  }
+  React.useEffect(() => {
+    getCoasterInfos();
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={main}>
         <GlobalStyles />
         <Header />
-        <CardWrapper>
-          <CoasterCard name="Collosos" ranking={4.2} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
-        </CardWrapper>
+        <Margin />
+        {coasterInfos.map(info => (
+          <CardWrapper key={info.id}>
+            <CoasterCard name={info.name} ranking={info.ranking} image={info.pic} />
+          </CardWrapper>
+        ))}
       </ThemeProvider>
     </>
   );

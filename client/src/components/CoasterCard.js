@@ -43,10 +43,12 @@ const Name = styled.h2`
 const Ranking = styled.span`
   color: ${props => props.theme.colors.highlight};
   font-size: 1.5em;
+  font-weight: 500;
 `;
 
 const RankingFix = styled.span`
   font-size: 1.5em;
+  font-weight: 100;
 `;
 
 const CardContent = styled.div`
@@ -67,7 +69,7 @@ export default function CoasterCard({ image, name, ranking }) {
         </CardContent>
         <CardFooter>
           {[1, 2, 3, 4, 5, 6, 7, 8].map(score => (
-            <WagonImage key={score} src={wagon} highlight={score < ranking} />
+            <WagonImage key={score} src={wagon} highlight={score <= ranking} />
           ))}
         </CardFooter>
       </Card>
