@@ -5,7 +5,6 @@ import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from './GlobalStyles.js';
 import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
-import coaster from './assets/coaster-taron.jpg';
 
 const CardWrapper = styled.div`
   margin-top: 110px;
@@ -18,10 +17,7 @@ export default function App() {
         <GlobalStyles />
         <Header />
         <CardWrapper>
-          <CoasterCard name="Collosos" ranking={4.2} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
-          <CoasterCard name="Taron" ranking={7} image={coaster} />
+          <CoasterCard name="" ranking="" image="" />
         </CardWrapper>
       </ThemeProvider>
     </>

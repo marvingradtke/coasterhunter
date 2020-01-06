@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import wagon from '../assets/coaster-wagon.svg';
+import { useState } from 'react';
 
 const Shadow = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
@@ -43,10 +44,12 @@ const Name = styled.h2`
 const Ranking = styled.span`
   color: ${props => props.theme.colors.highlight};
   font-size: 1.5em;
+  font-weight: 500;
 `;
 
 const RankingFix = styled.span`
   font-size: 1.5em;
+  font-weight: 100;
 `;
 
 const CardContent = styled.div`
@@ -56,21 +59,35 @@ const CardContent = styled.div`
 `;
 
 export default function CoasterCard({ image, name, ranking }) {
+  const [coasterInfos, setCoasterInfos] = useState([]);
+  async function getCoasterInfos() {
+    const response = await fetch('http://localhost:8080/coasters');
+    const newCoasters = await response.json();
+    setCoasterInfos(newCoasters);
+  }
+  React.useEffect(() => {
+    getCoasterInfos();
+  }, []);
+
   return (
-    <Shadow>
-      <Card>
-        <Image src={image} />
-        <CardContent>
-          <Name>{name}</Name>
-          <Ranking>{ranking}</Ranking>
-          <RankingFix>/8</RankingFix>
-        </CardContent>
-        <CardFooter>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map(score => (
-            <WagonImage key={score} src={wagon} highlight={score < ranking} />
-          ))}
-        </CardFooter>
-      </Card>
-    </Shadow>
+    <div>
+      {coasterInfos.map(info => (
+        <Shadow key={info.id}>
+          <Card>
+            <Image src={info.pic} />
+            <CardContent>
+              <Name>{info.name}</Name>
+              <Ranking>{info.ranking}</Ranking>
+              <RankingFix>/8</RankingFix>
+            </CardContent>
+            <CardFooter>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map(score => (
+                <WagonImage key={score} src={wagon} highlight={score <= info.ranking} />
+              ))}
+            </CardFooter>
+          </Card>
+        </Shadow>
+      ))}
+    </div>
   );
 }

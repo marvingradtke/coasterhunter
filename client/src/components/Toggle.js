@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import MenuIcon from '../assets/icon-feather.svg';
