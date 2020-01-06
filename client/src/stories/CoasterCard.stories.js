@@ -1,5 +1,6 @@
 import React from 'react';
 import CoasterCard from '../components/CoasterCard';
+import coaster from '../assets/coaster-taron.jpg';
 
 export default {
   title: 'Card'
@@ -8,7 +9,7 @@ export default {
 export function Examples() {
   return (
     <>
-      <CoasterCard name="" ranking="" image="" />
+      <CoasterCard name="Taron" ranking={7} image={coaster} />
     </>
   );
 }
