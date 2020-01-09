@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Toggle from '../components/Toggle';
-import { useState } from 'react';
-import { sortByRanking } from '../utils/sortFunctions';
+import { useHistory } from 'react-router-dom';
 
 const Shadow = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
@@ -36,17 +35,13 @@ const Text = styled.div`
   margin-bottom: 15px;
   text-align: center;
 `;
-export function CoasterMenu() {
-  const [coasterInfos, setCoasterInfos] = useState([]);
 
-  async function getCoasterInfos() {
-    const response = await fetch('http://localhost:8080/coasters');
-    const newCoasters = await response.json();
-    setCoasterInfos(newCoasters);
+export function CoasterMenu() {
+  let history = useHistory();
+
+  function handleClick(value) {
+    history.push(`coasters?_sort=${value}&_order=desc`);
   }
-  React.useEffect(() => {
-    getCoasterInfos();
-  }, []);
 
   return (
     <>
@@ -54,11 +49,21 @@ export function CoasterMenu() {
         <Toggle>
           <Menu>
             <Text>Sort by:</Text>
-            <Button onClick={() => setCoasterInfos(sortByRanking(coasterInfos))}>Ranking </Button>
-            <Button>Speed </Button>
-            <Button>Length </Button>
-            <Button>Duration </Button>
-            <Button>Hight</Button>
+            <Button value="ranking" onClick={event => handleClick(event.target.value)}>
+              Ranking
+            </Button>
+            <Button value="speed" onClick={event => handleClick(event.target.value)}>
+              Speed
+            </Button>
+            <Button value="lenght" onClick={event => handleClick(event.target.value)}>
+              Length
+            </Button>
+            <Button value="duration" onClick={event => handleClick(event.target.value)}>
+              Duration
+            </Button>
+            <Button value="height" onClick={event => handleClick(event.target.value)}>
+              Height
+            </Button>
           </Menu>
         </Toggle>
       </Shadow>

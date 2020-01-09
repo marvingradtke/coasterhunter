@@ -1,26 +1,12 @@
 import React from 'react';
-// import CoasterCard from '../src/components/CoasterCard';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from './GlobalStyles.js';
 import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
-// import { useState } from 'react';
-// import { sortByName, sortByRanking, sortBySpeed } from './utils/sortFunctions';
-import CoasterList from './components/pages/CoasterList';
-import DetailPage from './components/pages/DetailPage';
+import CoasterList from './pages/CoasterList';
+import DetailPage from './pages/DetailPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-// const CardWrapper = styled.div``;
-
-// const Margin = styled.div`
-//   margin-top: 100px;
-// `;
-
-// const Button = styled.button`
-//   background: black;
-//   color: wheat;
-// `;
 
 const Container = styled.div`
   height: 100vh;
@@ -30,26 +16,15 @@ const Container = styled.div`
 `;
 
 export default function App() {
-  // const [coasterInfos, setCoasterInfos] = useState([]);
-
-  // async function getCoasterInfos() {
-  //   const response = await fetch('http://localhost:8080/coasters');
-  //   const newCoasters = await response.json();
-  //   setCoasterInfos(newCoasters);
-  // }
-  // React.useEffect(() => {
-  //   getCoasterInfos();
-  // }, []);
-
   return (
     <>
       <ThemeProvider theme={main}>
         <GlobalStyles />
-        <Header />
         <Router>
+          <Header />
           <Container>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/coasters">
                 <CoasterList />
               </Route>
               <Route exact path="/details">
