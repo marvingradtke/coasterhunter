@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Logo from '../assets/coasterhunter-logo.svg';
 import SearchIcon from '../assets/icon-search.svg';
-import CoasterMenu from '../components/CoasterMenu';
+import CoasterMenu from './CoasterMenu';
 
 const Head = styled.header`
   display: flex;
