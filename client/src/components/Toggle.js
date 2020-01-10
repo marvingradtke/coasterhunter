@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import MenuIcon from '../assets/icon-feather.svg';
 
@@ -29,9 +30,12 @@ function Toggle({ children }) {
       <Button onClick={() => setToggle(toggle => !toggle)}>
         <Icon src={MenuIcon}></Icon>
       </Button>
-      {toggle && <> {children} </>}
+      {toggle && children}
     </Wrapper>
   );
 }
 
+Toggle.propTypes = {
+  children: PropTypes.element.isRequired
+};
 export default Toggle;

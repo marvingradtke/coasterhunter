@@ -5,7 +5,7 @@ import GlobalStyles from './GlobalStyles.js';
 import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
 import CoasterList from './pages/CoasterList';
-import DetailPage from './pages/DetailPage';
+import Coaster from './pages/Coaster';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const Container = styled.div`
@@ -13,31 +13,26 @@ const Container = styled.div`
   width: 100vw;
   display: flex;
   flex-flow: column wrap;
+  padding-top: 100px;
 `;
 
 export default function App() {
   return (
-    <>
-      <ThemeProvider theme={main}>
-        <GlobalStyles />
-        <Router>
-          <Header />
-          <Container>
-            <Switch>
-              <Route exact path="/coasters">
-                <CoasterList />
-              </Route>
-              <Route exact path="/details">
-                <DetailPage />
-              </Route>
-            </Switch>
-          </Container>
-        </Router>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={main}>
+      <GlobalStyles />
+      <Router>
+        <Header />
+        <Container>
+          <Switch>
+            <Route exact path="/">
+              <CoasterList />
+            </Route>
+            <Route exact path="/:coasterName">
+              <Coaster />
+            </Route>
+          </Switch>
+        </Container>
+      </Router>
+    </ThemeProvider>
   );
 }
-
-/* <Button onClick={() => setCoasterInfos(sortByName(coasterInfos))}>Name</Button>
-        <Button onClick={() => setCoasterInfos(sortByRanking(coasterInfos))}>Rank</Button>
-        <Button onClick={() => setCoasterInfos(sortBySpeed(coasterInfos))}>Speed</Button>*/

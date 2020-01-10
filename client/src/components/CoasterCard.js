@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import wagon from '../assets/coaster-wagon.svg';
 
 const Shadow = styled.div`
@@ -76,3 +77,8 @@ export default function CoasterCard({ image, name, ranking }) {
     </Shadow>
   );
 }
+CoasterCard.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  ranking: PropTypes.number
+};
