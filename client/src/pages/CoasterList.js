@@ -4,38 +4,29 @@ import CoasterCard from '../components/CoasterCard';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
 `;
 
 export default function CoasterList() {
-  const [coasterInfos, setCoasterInfos] = useState([]);
-  let sortby = useLocation().search;
-  // another state, "sortby", match params
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
+  const [coasterInfos, setCoasterInfos] = useState(null);
+  const search = useLocation().search;
 
   useEffect(() => {
     async function getCoasterInfos() {
-      const response = await fetch(`http://localhost:8080/coasters${sortby}`);
+      const response = await fetch(`/coasters${search}`);
       const newCoasters = await response.json();
       setCoasterInfos(newCoasters);
     }
     getCoasterInfos();
-  }, [sortby]);
-
-  useQuery();
+  }, [search]);
 
   return (
-    <>
-      <Container>
-        {coasterInfos.map(info => (
+    <Container>
+      {coasterInfos &&
+        coasterInfos.map(info => (
           <CoasterCard key={info.id} name={info.name} ranking={info.ranking} image={info.pic} />
         ))}
-        ;
-      </Container>
-    </>
+    </Container>
   );
 }

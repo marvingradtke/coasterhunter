@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import Toggle from '../components/Toggle';
 import { useHistory } from 'react-router-dom';
+import menuIcon from '../assets/icon-feather.svg';
 
 const Shadow = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
@@ -36,38 +36,55 @@ const Text = styled.div`
   text-align: center;
 `;
 
-export function CoasterMenu() {
-  let history = useHistory();
+const Icon = styled.img`
+  width: 30px;
+`;
 
-  function handleClick(value) {
-    history.push(`coasters?_sort=${value}&_order=desc`);
+const IconButton = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+`;
+
+export function CoasterMenu() {
+  const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
+  function addSortToURL(sortBy) {
+    history.push(`?_sort=${sortBy}&_order=desc`);
+    setShowMenu(false);
   }
 
   return (
-    <>
-      <Shadow>
-        <Toggle>
-          <Menu>
-            <Text>Sort by:</Text>
-            <Button value="ranking" onClick={event => handleClick(event.target.value)}>
-              Ranking
-            </Button>
-            <Button value="speed" onClick={event => handleClick(event.target.value)}>
-              Speed
-            </Button>
-            <Button value="lenght" onClick={event => handleClick(event.target.value)}>
-              Length
-            </Button>
-            <Button value="duration" onClick={event => handleClick(event.target.value)}>
-              Duration
-            </Button>
-            <Button value="height" onClick={event => handleClick(event.target.value)}>
-              Height
-            </Button>
-          </Menu>
-        </Toggle>
-      </Shadow>
-    </>
+    <Shadow>
+      <IconButton onClick={() => setShowMenu(!showMenu)}>
+        <Icon src={menuIcon} />
+      </IconButton>
+      {showMenu && (
+        <Menu>
+          <Text>Sort by:</Text>
+          <Button value="ranking" onClick={event => addSortToURL(event.target.value)}>
+            Ranking
+          </Button>
+          <Button value="speed" onClick={event => addSortToURL(event.target.value)}>
+            Speed
+          </Button>
+          <Button value="lenght" onClick={event => addSortToURL(event.target.value)}>
+            Length
+          </Button>
+          <Button value="duration" onClick={event => addSortToURL(event.target.value)}>
+            Duration
+          </Button>
+          <Button value="height" onClick={event => addSortToURL(event.target.value)}>
+            Height
+          </Button>
+        </Menu>
+      )}
+    </Shadow>
   );
 }
 
