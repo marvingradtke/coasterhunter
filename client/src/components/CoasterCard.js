@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import wagon from '../assets/coaster-wagon.svg';
+import { useHistory } from 'react-router-dom';
 
 const Shadow = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
@@ -58,10 +59,12 @@ const CardContent = styled.div`
   width: 100%;
 `;
 
-export default function CoasterCard({ image, name, ranking }) {
+export default function CoasterCard({ image, name, ranking, id }) {
+  const history = useHistory();
+
   return (
     <Shadow>
-      <Card>
+      <Card onClick={() => history.push(`${id}`)}>
         <Image src={image} />
         <CardContent>
           <Name>{name}</Name>
