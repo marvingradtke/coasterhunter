@@ -12,20 +12,28 @@ export default function CoasterList() {
   const [coasterInfos, setCoasterInfos] = useState(null);
   const search = useLocation().search;
 
+  console.log(search, coasterInfos);
+
   useEffect(() => {
     async function getCoasterInfos() {
-      const response = await fetch(`/coasters${search}`);
+      const response = await fetch(`/api/coasters${search}`);
       const newCoasters = await response.json();
       setCoasterInfos(newCoasters);
     }
     getCoasterInfos();
-  }, [search]);
+  }, []);
 
   return (
     <Container>
       {coasterInfos &&
         coasterInfos.map(info => (
-          <CoasterCard key={info.id} name={info.name} ranking={info.ranking} image={info.pic} />
+          <CoasterCard
+            key={info.id}
+            id={info.id}
+            name={info.name}
+            ranking={info.ranking}
+            image={info.pic}
+          />
         ))}
     </Container>
   );

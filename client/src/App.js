@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
 import GlobalStyles from './GlobalStyles.js';
 import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
 import CoasterList from './pages/CoasterList';
 import Coaster from './pages/Coaster';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const Container = styled.div`
   height: 100vh;
@@ -27,7 +27,7 @@ export default function App() {
             <Route exact path="/">
               <CoasterList />
             </Route>
-            <Route exact path="/:coasterName">
+            <Route exact path="/:coasterId">
               <Coaster />
             </Route>
           </Switch>
