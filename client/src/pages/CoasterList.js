@@ -12,6 +12,8 @@ export default function CoasterList() {
   const [coasterInfos, setCoasterInfos] = useState(null);
   const search = useLocation().search;
 
+  console.log(search, coasterInfos);
+
   useEffect(() => {
     async function getCoasterInfos() {
       const response = await fetch(`/api/coasters${search}`);
@@ -19,7 +21,7 @@ export default function CoasterList() {
       setCoasterInfos(newCoasters);
     }
     getCoasterInfos();
-  }, [search]);
+  }, []);
 
   return (
     <Container>
