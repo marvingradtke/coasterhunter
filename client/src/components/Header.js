@@ -36,16 +36,12 @@ const HeadButton = styled.button`
 export default function Header() {
   const history = useHistory();
 
-  function goBackToStart() {
-    history.push(``);
-  }
-
   return (
     <Head>
       <HeadButton>
         <Icon src={searchIcon} />
       </HeadButton>
-      <HeadLogo src={logo} onClick={event => goBackToStart(event.target.value)} />
+      <HeadLogo src={logo} onClick={() => history.push(``)} />
       <CoasterMenu />
     </Head>
   );
