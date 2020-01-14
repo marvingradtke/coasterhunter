@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import logo from '../assets/coasterhunter-logo.svg';
 import searchIcon from '../assets/icon-search.svg';
 import CoasterMenu from './CoasterMenu';
+import { useHistory } from 'react-router-dom';
 
 const Head = styled.header`
   display: flex;
@@ -33,12 +34,14 @@ const HeadButton = styled.button`
 `;
 
 export default function Header() {
+  const history = useHistory();
+
   return (
     <Head>
       <HeadButton>
         <Icon src={searchIcon} />
       </HeadButton>
-      <HeadLogo src={logo} />
+      <HeadLogo src={logo} onClick={() => history.push(``)} />
       <CoasterMenu />
     </Head>
   );

@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
 import wagon from '../assets/coaster-wagon.svg';
+import coasterPath from '../assets/coaster-path.svg';
+import location from '../assets/location.svg';
+import speed from '../assets/speed.svg';
+import length from '../assets/length.svg';
+import duration from '../assets/duration.svg';
+import height from '../assets/height.svg';
 
 const Shadow = styled.div`
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.2));
@@ -19,7 +25,7 @@ const Card = styled.div`
   height: 500px;
   margin: auto;
   margin-top: 10px;
-  clip-path: polygon(10% 0, 100% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 100%, 0 15%);
+  clip-path: polygon(8% 0, 100% 0, 100% 94%, 91% 100%, 0 100%, 0 5%);
 `;
 
 const Image = styled.img`
@@ -67,14 +73,40 @@ const RankingFix = styled.span`
   font-weight: 100;
 `;
 
+const IconLocation = styled.img`
+  width: 6%;
+  margin-right: 4px;
+`;
+
 const Location = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 7px 5px 7px 0px;
+`;
+
+const IconWrapper = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 100%;
 `;
 
-const CardFooter = styled.div`
+const DetailWrapper = styled.div`
+  margin-bottom: 10px;
   display: flex;
-  width: 100%;
-  height: 40px;
+  align-items: center;
+`;
+
+const Icon = styled.img`
+  width: 30%;
+  margin-right: 4px;
+`;
+
+const CardFooter = styled.img`
+  width: 110%;
+  height: 70px;
 `;
 
 export default function Coaster() {
@@ -101,15 +133,35 @@ export default function Coaster() {
               <Ranking>{coaster.ranking}</Ranking>
               <RankingFix>/8</RankingFix>
             </NameWrapper>
-            <Location>{coaster.location}</Location>
+            <Location>
+              <IconLocation src={location} />
+              {coaster.location}
+            </Location>
             <WagonWrapper>
               {[1, 2, 3, 4, 5, 6, 7, 8].map(score => (
                 <WagonImage key={score} src={wagon} highlight={score <= coaster.ranking} />
               ))}
             </WagonWrapper>
-            <div>4 mopeds</div>
+            <IconWrapper>
+              <DetailWrapper>
+                <Icon src={speed} />
+                {coaster.speed} km/h
+              </DetailWrapper>
+              <DetailWrapper>
+                <Icon src={duration} />
+                {coaster.duration} sec.
+              </DetailWrapper>
+              <DetailWrapper>
+                <Icon src={length} />
+                {coaster.length} m
+              </DetailWrapper>
+              <DetailWrapper>
+                <Icon src={height} />
+                {coaster.height} m
+              </DetailWrapper>
+            </IconWrapper>
           </CardContent>
-          <CardFooter></CardFooter>
+          <CardFooter src={coasterPath} />
         </Card>
       )}
     </Shadow>

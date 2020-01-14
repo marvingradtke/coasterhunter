@@ -55,7 +55,7 @@ export function CoasterMenu() {
   const [showMenu, setShowMenu] = useState(false);
 
   function addSortToURL(sortBy) {
-    history.push(`?_sort=${sortBy}&_order=desc`);
+    history.push(`/?_sort=${sortBy}&_order=desc`);
     setShowMenu(false);
   }
 
@@ -73,7 +73,7 @@ export function CoasterMenu() {
           <Button value="speed" onClick={event => addSortToURL(event.target.value)}>
             Speed
           </Button>
-          <Button value="lenght" onClick={event => addSortToURL(event.target.value)}>
+          <Button value="length" onClick={event => addSortToURL(event.target.value)}>
             Length
           </Button>
           <Button value="duration" onClick={event => addSortToURL(event.target.value)}>
