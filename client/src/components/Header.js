@@ -18,6 +18,7 @@ const Head = styled.header`
 
 const Icon = styled.img`
   width: 30px;
+  opacity: 0;
 `;
 
 const HeadLogo = styled.img`

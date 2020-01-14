@@ -90,7 +90,7 @@ const IconWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100%;
+  width: 98%;
 `;
 
 const DetailWrapper = styled.div`
@@ -101,7 +101,7 @@ const DetailWrapper = styled.div`
 
 const Icon = styled.img`
   width: 30%;
-  margin-right: 4px;
+  margin-right: 5px;
 `;
 
 const CardFooter = styled.img`
