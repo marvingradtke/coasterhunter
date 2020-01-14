@@ -21,7 +21,7 @@ export default function CoasterList() {
       setCoasterInfos(newCoasters);
     }
     getCoasterInfos();
-  }, []);
+  }, [search]);
 
   return (
     <Container>
