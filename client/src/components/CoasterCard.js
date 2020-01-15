@@ -83,5 +83,6 @@ export default function CoasterCard({ image, name, ranking, id }) {
 CoasterCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
-  ranking: PropTypes.number
+  ranking: PropTypes.number,
+  id: PropTypes.number
 };
