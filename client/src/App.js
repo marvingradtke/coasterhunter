@@ -7,6 +7,7 @@ import main from './themes/defaultTheme.js';
 import Header from './components/Header.js';
 import CoasterList from './pages/CoasterList';
 import Coaster from './pages/Coaster';
+import Landing from './pages/Landing';
 
 const Container = styled.div`
   height: 100vh;
@@ -21,13 +22,17 @@ export default function App() {
     <ThemeProvider theme={main}>
       <GlobalStyles />
       <Router>
-        <Header />
         <Container>
           <Switch>
+            <Route exact path="/landing">
+              <Landing />
+            </Route>
             <Route exact path="/">
+              <Header />
               <CoasterList />
             </Route>
             <Route exact path="/:coasterId">
+              <Header />
               <Coaster />
             </Route>
           </Switch>
